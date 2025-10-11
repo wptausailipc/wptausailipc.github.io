@@ -53,16 +53,56 @@
     /* Info list */
     .info{max-width:760px;margin:22px auto 0 auto;color:var(--muted)}
     .info ul{margin:8px 0 0 1.2rem}
+    /* Mobile menu button (hidden on desktop) */
+    .menu-btn{
+      display:none;
+      border:1px solid var(--border);
+      background:#fff;
+      border-radius:10px;
+      padding:8px 10px;
+    }
+    
+    /* Drawer (off-canvas) */
+    .drawer{
+      position:fixed; inset:0 0 0 auto;
+      width:78%; max-width:360px; background:#fff;
+      border-left:1px solid var(--border);
+      transform:translateX(100%); transition:transform .25s ease;
+      z-index:60; display:flex; flex-direction:column;
+    }
+    .drawer.open{ transform:translateX(0) }
+    .drawer header{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:16px 18px; border-bottom:1px solid var(--border);
+    }
+    .drawer nav a{
+      display:block; padding:14px 18px; border-bottom:1px solid var(--border);
+      color:inherit; text-decoration:none; font-weight:600;
+    }
+    
+    /* Mobile breakpoint: hide links, show button; optionally shorten brand text */
+    @media (max-width:900px){
+      .links{ display:none; }
+      .menu-btn{ display:block; }
+      .brand span{ white-space:nowrap; }
+    }
+    @media (max-width:600px){
+      /* If your title is long, hide it to keep the header tidy */
+      .brand span{ display:none; }
+    }
+
   </style>
 </head>
 <body>
-  <header class="header">
+  <header class="header" role="banner">
     <div class="nav">
-      <a class="brand" href="index.html">
+      <a class="brand" href="index.html" aria-label="Home">
         <img src="WPTA-logo.png" alt="Competition Logo" />
         <span>WPTA USA–Illinois IPC</span>
       </a>
-      <nav class="links">
+  
+      <!-- Desktop links -->
+      <nav class="links" aria-label="Primary">
         <a href="index.html">Home</a>
         <a href="about.html">About us</a>
         <a href="rules.html">Rules & regulations</a>
@@ -70,8 +110,28 @@
         <a href="apply.html">Apply Now</a>
         <a href="contact.html">Contact</a>
       </nav>
+  
+      <!-- Mobile menu button -->
+      <button class="menu-btn" aria-label="Open menu" id="openMenu">☰</button>
     </div>
   </header>
+  
+  <!-- Mobile drawer -->
+  <aside class="drawer" id="drawer" aria-hidden="true">
+    <header>
+      <strong>Menu</strong>
+      <button class="menu-btn" aria-label="Close menu" id="closeMenu">✕</button>
+    </header>
+    <nav aria-label="Mobile">
+      <a href="index.html" onclick="closeDrawer()">Home</a>
+      <a href="about.html" onclick="closeDrawer()">About us</a>
+      <a href="rules.html" onclick="closeDrawer()">Rules & regulations</a>
+      <a href="people.html" onclick="closeDrawer()">People</a>
+      <a href="apply.html" onclick="closeDrawer()">Apply Now</a>
+      <a href="contact.html" onclick="closeDrawer()">Contact</a>
+    </nav>
+  </aside>
+
 
   <section class="hero">
     <div class="container">
@@ -93,6 +153,20 @@
       </div>
     </div>
   </section>
+  <script>
+    const drawer = document.getElementById('drawer');
+    const openBtn = document.getElementById('openMenu');
+    const closeBtn = document.getElementById('closeMenu');
+    function closeDrawer(){ drawer.classList.remove('open'); drawer.setAttribute('aria-hidden','true'); }
+    openBtn?.addEventListener('click', ()=>{ drawer.classList.add('open'); drawer.setAttribute('aria-hidden','false'); });
+    closeBtn?.addEventListener('click', closeDrawer);
+    // Close when tapping outside the drawer
+    document.addEventListener('click', (e)=>{
+      if(!drawer.classList.contains('open')) return;
+      const inside = drawer.contains(e.target) || openBtn.contains(e.target);
+      if(!inside) closeDrawer();
+    });
+  </script>
 </body>
 </html>
 
