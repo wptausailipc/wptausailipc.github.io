@@ -26,8 +26,40 @@
 
     main{max-width:900px;margin:0 auto;padding:60px 16px}
     h1{font-size:2rem;margin-bottom:30px;font-weight:800}
-    .people-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:40px}
-    .person{text-align:center}
+    /* Grid: 3 across on desktop */
+    .people-grid{
+      display:grid;
+      gap:40px;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    }
+    @media (min-width:1024px){
+      .people-grid{ grid-template-columns:repeat(3,1fr); }
+    }
+    
+    /* Person card */
+    .person{ text-align:center }
+    
+    /* Circular avatar */
+    .person .avatar{
+      width:220px;              /* circle size on desktop */
+      height:220px;             /* keep square then make circle */
+      margin:0 auto 12px;
+      border-radius:50%;
+      overflow:hidden;
+      border:1px solid #e6e8ef; /* subtle ring */
+    }
+    .person .avatar img{
+      width:100%;
+      height:100%;
+      object-fit:cover;         /* crop neatly inside the circle */
+      display:block;
+    }
+    
+    /* Smaller circle on small screens (optional) */
+    @media (max-width:600px){
+      .person .avatar{ width:160px; height:160px; }
+    }
+
     .person img{width:100%;height:auto;border-radius:8px;margin-bottom:12px}
     .person h2{margin:8px 0 4px 0;font-size:1.2rem}
     .person p{margin:0;font-size:.95rem;line-height:1.4}
@@ -83,7 +115,7 @@
           <a href="index.html">Home</a>
           <a href="about.html">About us</a>
           <a href="rules.html">Rules & regulations</a>
-          <a href="people.html">People</a>
+          <a href=".html"></a>
           <a href="apply.html">Apply Now</a>
           <a href="contact.html">Contact</a>
         </nav>
@@ -103,15 +135,15 @@
         <a href="index.html" onclick="closeDrawer()">Home</a>
         <a href="about.html" onclick="closeDrawer()">About us</a>
         <a href="rules.html" onclick="closeDrawer()">Rules & regulations</a>
-        <a href="people.html" onclick="closeDrawer()">People</a>
+        <a href=".html" onclick="closeDrawer()"></a>
         <a href="apply.html" onclick="closeDrawer()">Apply Now</a>
         <a href="contact.html" onclick="closeDrawer()">Contact</a>
       </nav>
     </aside>
 
   <main>
-    <h1>People</h1>
-    <div class="people-grid">
+    <h1></h1>
+    <div class="-grid">
       <div class="person">
         <img src="wanlin.jpg" alt="Portrait of Dr. Wan Lin">
         <h2>Dr. Wan Lin</h2>
