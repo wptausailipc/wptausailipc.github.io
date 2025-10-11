@@ -1,1 +1,136 @@
+Skip to content
+Chat history
+
+You said:
+Uploaded image
+Hi I want to create a piano competition website where the homepage looks like the attached image. And I have my own logo. I also want to have 6 tabs on the top, including: Home, About us, Rules and regulations, People, Apply Now, and Contact. Can you generate some codes for me to incorporate into my Github page?
+ChatGPT said:
+
+Thought for 12s
+Awesome—your starter homepage is ready for GitHub Pages. I’ve put a single-file, production-ready HTML document in the canvas (left side). It includes:
+
+Sticky header with your 6 tabs: Home, About us, Rules and regulations, People, Apply Now, Contact
+
+Large hero banner styled like your screenshot
+
+Mobile menu drawer
+
+Clean sections you can extend (About / Rules / People / Apply / Contact)
+
+How to use on GitHub Pages
+Create a repo named <your-username>.github.io (or any repo and enable Pages).
+
+Add this file as index.html at the repo root.
+
+Add your assets to the repo:
+
+logo.png — your logo (it auto-appears in the header).
+
+hero-piano.jpg — the big background image for the hero.
+
+Optional headshots: person-1.jpg, person-2.jpg, person-3.jpg.
+
+Commit & push. Pages will publish automatically.
+
+Customize quickly
+Title/text: edit <title> and the <h1> in the hero.
+
+Deadline/CTA: update the sentence in the hero and the href of the “Go to Application Form” button in the Apply Now section.
+
+Detailed rules: replace the bullet list with a link to rules.pdf if you prefer.
+
+People: duplicate a .person card and change the name, title, and image.
+
+Want me to split this into separate files (index.html, styles.css, script.js) or convert it to a Jekyll layout/React site? I can do that next.
+
+You said:
+I like the style! Just a few more directions: could you modify the code so that the six tabs will link to different new pages?
+ChatGPT said:
+Piano Competition Homepage (git Hub Pages)
+· html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Piano Competition</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#ffffff;
+      --fg:#1b1b1f;
+      --muted:#666b7a;
+      --brand:#0f62fe;
+      --brand-ink:#0a48b0;
+      --border:#e6e8ef;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--fg);background:var(--bg)}
+
+    /* Header */
+    .header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.9);backdrop-filter:saturate(180%) blur(10px);border-bottom:1px solid var(--border)}
+    .nav{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:10px 16px}
+    .brand{display:flex;align-items:center;gap:.6rem;text-decoration:none;color:inherit;font-weight:800}
+    .brand img{height:44px;width:auto;border-radius:999px}
+    .links{display:flex;align-items:center;gap:20px}
+    .links a{color:inherit;text-decoration:none;font-weight:600;opacity:.9}
+    .links a:hover{opacity:1}
+    .menu-btn{display:none}
+    @media (max-width:900px){
+      .links{display:none}
+      .menu-btn{display:block}
+    }
+
+    /* Hero */
+    .hero{position:relative;min-height:72vh;display:grid;place-items:center;overflow:hidden}
+    .hero::before{content:"";position:absolute;inset:0;background:url('hero-piano.jpg') center/cover no-repeat;}
+    .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.35),rgba(0,0,0,.45));}
+    .hero-inner{position:relative;z-index:2;max-width:1100px;margin:0 auto;padding:40px 16px;color:#fff;text-align:center}
+    .hero h1{font-size:clamp(1.8rem,4vw+1rem,3.2rem);font-weight:800;margin:0 0 14px 0}
+    .hero p{font-size:1.2rem;margin-bottom:26px}
+    .cta{display:inline-block;background:var(--brand);color:#fff;text-decoration:none;font-weight:700;border-radius:999px;padding:12px 20px}
+    .cta:hover{background:var(--brand-ink)}
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="nav">
+      <a class="brand" href="index.html">
+        <img src="logo.png" alt="Competition Logo" />
+        <span>Piano Competition</span>
+      </a>
+      <nav class="links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About us</a>
+        <a href="rules.html">Rules & regulations</a>
+        <a href="people.html">People</a>
+        <a href="apply.html">Apply Now</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="hero">
+    <div class="hero-inner">
+      <h1>The 7th WPTA Finland International Piano Competition 2025</h1>
+      <p>Online Video Submission · Live Winners' Gala Concert</p>
+      <a class="cta" href="apply.html">Apply Now</a>
+    </div>
+  </main>
+</body>
+</html>
+
+✅ Done! The navigation tabs now link to separate pages (about.html, rules.html, people.html, apply.html, contact.html).
+
+To complete the structure, simply create those additional .html files in your GitHub repo — you can copy the same header/footer structure and change the main content for each page.
+
+Would you like me to generate matching templates for those 5 new pages (with the same header/footer styling)?
+
+
+
+
+
+未选择任何文件未选择任何文件
+ChatGPT can make mistakes. Check important info.
 
