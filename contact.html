@@ -37,9 +37,28 @@
     .btn:hover{background:var(--brand-ink)}
     .footnote{color:var(--muted);font-size:.95rem;margin-top:10px}
 
-    .alert{margin-top:14px;padding:12px;border-radius:12px;border:1px solid var(--border);display:none}
-    .alert.ok{display:block;border-color:#cde7d8;background:#eef8f2;color:var(--ok)}
-    .alert.bad{display:block;border-color:#f3c4bf;background:#fcebea;color:var(--bad)}
+    /* Alerts */
+.alert{
+  margin-top:14px;
+  padding:12px;
+  border-radius:12px;
+  border:1px solid var(--border);
+  display:none;               /* hidden by default */
+}
+.alert.show{                  /* we will toggle this in JS */
+  display:block;
+}
+.alert.ok{
+  border-color:#cde7d8;
+  background:#eef8f2;
+  color:var(--ok);
+}
+.alert.bad{
+  border-color:#f3c4bf;
+  background:#fcebea;
+  color:var(--bad);
+}
+
 
     @media (max-width:900px){
       .col-6{grid-column:span 12}
@@ -97,21 +116,21 @@
     </div>
   </main>
 
-  <script>
-    // Replace with your Formspree endpoint (https://formspree.io/f/xxxxxx)
-    const FORM_ENDPOINT = "https://formspree.io/f/mzzjjwrp"; // TODO: set your real endpoint
-
+    <script>
+    // Replace with your Formspree endpoint
+    const FORM_ENDPOINT = "https://formspree.io/f/mzzjjwrp";
+  
     const form = document.getElementById('contactForm');
     const ok = document.getElementById('alertOk');
     const bad = document.getElementById('alertBad');
-
+  
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      ok.style.display = 'none';
-      bad.style.display = 'none';
-
+      ok.classList.remove('show');
+      bad.classList.remove('show');
+  
       if (!form.reportValidity()) return;
-
+  
       try {
         const data = Object.fromEntries(new FormData(form).entries());
         const res = await fetch(FORM_ENDPOINT, {
@@ -120,13 +139,13 @@
           body: JSON.stringify(data)
         });
         if (res.ok) {
-          ok.style.display = 'block';
+          ok.classList.add('show');
           form.reset();
         } else {
-          bad.style.display = 'block';
+          bad.classList.add('show');
         }
-      } catch (err) {
-        bad.style.display = 'block';
+      } catch {
+        bad.classList.add('show');
       }
     });
   </script>
