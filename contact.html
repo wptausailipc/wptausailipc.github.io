@@ -30,6 +30,13 @@
     padding: 32px;           /* slightly more padding for spacious look */}
     
     form{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
+    /* Make non-field rows span the full grid width */
+    form .alert,
+    form .footnote,
+    form .actions {
+      grid-column: 1 / -1;
+    }
+
     .col-6{grid-column:span 6}
     .col-12{grid-column:span 12}
     label{display:block;font-weight:600;margin-bottom:6px}
