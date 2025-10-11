@@ -27,13 +27,20 @@
     main{max-width:900px;margin:0 auto;padding:60px 16px}
     h1{font-size:2rem;margin-bottom:30px;font-weight:800}
     /* Grid: 3 across on desktop */
+    /* Base: keep your current mobile/tablet grid as-is */
     .people-grid{
       display:grid;
       gap:40px;
       grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
     }
+    
+    /* Desktop: force a single centered column */
     @media (min-width:1024px){
-      .people-grid{ grid-template-columns:repeat(3,1fr); }
+      .people-grid{
+        grid-template-columns: 1fr;   /* one column */
+        max-width: 720px;             /* optional: keeps line length tidy */
+        margin: 0 auto;               /* center the column */
+      }
     }
     
     /* Person card */
