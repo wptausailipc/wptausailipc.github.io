@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Piano Competition</title>
+  <title>About Us — Piano Competition</title>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
@@ -16,9 +16,7 @@
       --border:#e6e8ef;
     }
     *{box-sizing:border-box}
-    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--fg);background:var(--bg)}
-
-    /* Header */
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--fg);background:var(--bg);line-height:1.6}
     .header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.9);backdrop-filter:saturate(180%) blur(10px);border-bottom:1px solid var(--border)}
     .nav{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:10px 16px}
     .brand{display:flex;align-items:center;gap:.6rem;text-decoration:none;color:inherit;font-weight:800}
@@ -26,21 +24,13 @@
     .links{display:flex;align-items:center;gap:20px}
     .links a{color:inherit;text-decoration:none;font-weight:600;opacity:.9}
     .links a:hover{opacity:1}
-    .menu-btn{display:none}
-    @media (max-width:900px){
-      .links{display:none}
-      .menu-btn{display:block}
-    }
 
-    /* Hero */
-    .hero{position:relative;min-height:72vh;display:grid;place-items:center;overflow:hidden}
-    .hero::before{content:"";position:absolute;inset:0;background:url('hero-piano.jpg') center/cover no-repeat;}
-    .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.35),rgba(0,0,0,.45));}
-    .hero-inner{position:relative;z-index:2;max-width:1100px;margin:0 auto;padding:40px 16px;color:#fff;text-align:center}
-    .hero h1{font-size:clamp(1.8rem,4vw+1rem,3.2rem);font-weight:800;margin:0 0 14px 0}
-    .hero p{font-size:1.2rem;margin-bottom:26px}
-    .cta{display:inline-block;background:var(--brand);color:#fff;text-decoration:none;font-weight:700;border-radius:999px;padding:12px 20px}
-    .cta:hover{background:var(--brand-ink)}
+    main{max-width:800px;margin:0 auto;padding:60px 16px}
+    h1{font-size:2rem;margin-bottom:20px;font-weight:800}
+    p{margin-bottom:1rem}
+    ul{margin:1rem 0 1rem 1.5rem}
+    a{color:var(--brand);text-decoration:none}
+    a:hover{text-decoration:underline}
   </style>
 </head>
 <body>
@@ -61,12 +51,27 @@
     </div>
   </header>
 
-  <main class="hero">
-    <div class="hero-inner">
-      <h1>The 7th WPTA Finland International Piano Competition 2025</h1>
-      <p>Online Video Submission · Live Winners' Gala Concert</p>
-      <a class="cta" href="apply.html">Apply Now</a>
-    </div>
+  <main>
+    <h1>About Us</h1>
+    <p>The <strong>World Piano Teachers Association USA–Illinois (WPTA USA–IL)</strong> is the official Illinois chapter of the World Piano Teachers Association (WPTA) — an international organization dedicated to promoting excellence in piano performance, pedagogy, and cultural exchange worldwide.</p>
+
+    <p>At WPTA USA–IL, our mission is to support and connect pianists, educators, and students across Illinois and beyond. We are committed to fostering artistic excellence, encouraging professional growth, and providing meaningful performance opportunities through concerts, competitions, masterclasses, and collaborative events.</p>
+
+    <p>By joining our community, members become part of a global network of pianists and teachers, gaining access to:</p>
+    <ul>
+      <li>Participation in international WPTA events, conferences, and performance platforms</li>
+      <li>Opportunities to perform, teach, and adjudicate at both local and global levels</li>
+      <li>Access to exclusive professional development resources and networking opportunities</li>
+      <li>Priority involvement in the annual WPTA USA–Illinois International Piano Competition and other chapter activities</li>
+    </ul>
+
+    <p>We warmly invite piano teachers, performers, and students to become members of WPTA USA–IL. Your membership directly supports our mission to bring world-class opportunities to pianists in Illinois, while connecting you with an inspiring international community of fellow musicians. Join us today and be part of a growing network that celebrates piano artistry, education, and collaboration on a global stage.</p>
+
+    <p>For more information about our chapter, visit the official WPTA USA–Illinois page:<br>
+    <a href="https://www.wpta.info/usa-illinois/" target="_blank">https://www.wpta.info/usa-illinois/</a></p>
+
+    <p>If you would like to support our mission of fostering pianistic excellence and creating meaningful opportunities for young musicians, please consider making a donation:<br>
+    <a href="https://www.paypal.com/paypalme/WPTAillinois" target="_blank">https://www.paypal.com/paypalme/WPTAillinois</a></p>
   </main>
 </body>
 </html>
