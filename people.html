@@ -28,20 +28,22 @@
     h1{font-size:2rem;margin-bottom:30px;font-weight:800}
     /* Grid: 3 across on desktop */
     /* Base: keep your current mobile/tablet grid as-is */
+    /* Base layout (mobile/tablet): auto-fit cards */
     .people-grid{
       display:grid;
       gap:40px;
       grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
     }
     
-    /* Desktop: force a single centered column */
+    /* Desktop/laptop: exactly 3 across */
     @media (min-width:1024px){
       .people-grid{
-        grid-template-columns: 1fr;   /* one column */
-        max-width: 720px;             /* optional: keeps line length tidy */
-        margin: 0 auto;               /* center the column */
+        grid-template-columns: repeat(3, 1fr);
       }
     }
+    
+    /* Optional: give the page room so cards don’t feel cramped */
+    main{ max-width:1100px; margin:0 auto; }
     
     /* Person card */
     .person{ text-align:center }
